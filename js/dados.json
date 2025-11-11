@@ -1,8 +1,8 @@
 document.addEventListener("DOMContentLoaded", () => {
-fetch("js/dados.json")
+  fetch("js/dados.json")
     .then(response => {
       if (!response.ok) {
-        throw new Error("Erro ao carregar dados.json");
+        throw new Error("Erro ao carregar js/dados.json");
       }
       return response.json();
     })
@@ -13,7 +13,7 @@ fetch("js/dados.json")
         const linha = document.createElement("tr");
 
         linha.innerHTML = `
-          <td><img src="${livro.capa}" alt="Capa" class="capa-img"></td>
+          <td><img src="${livro.capa}" alt="Capa do livro" class="capa-img"></td>
           <td>${livro.titulo}</td>
           <td>${livro.autor}</td>
           <td>${livro.genero}</td>
@@ -23,5 +23,5 @@ fetch("js/dados.json")
         tabela.appendChild(linha);
       });
     })
-    .catch(error => console.error("Erro:", error));
+    .catch(error => console.error(error));
 });
