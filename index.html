@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Biblioteca Digital - Página Inicial</title>
     <link rel="stylesheet" href="styles.css">
+    <!-- Link to dark theme stylesheet -->
+    <link rel="stylesheet" href="styles-dark.css">
 </head>
 <body>
     <nav class="navbar">
@@ -15,6 +17,8 @@
                 <li><a href="catalogo.html" class="nav-link">Catálogo</a></li>
                 <li><a href="contato.html" class="nav-link">Contato</a></li>
                 <li><a href="equipe.html" class="nav-link">Equipe</a></li>
+                <!-- Add theme toggle button -->
+                <li><button id="theme-toggle" class="theme-toggle-btn">🌙 Tema Escuro</button></li>
             </ul>
         </div>
     </nav>
@@ -53,5 +57,7 @@
     <footer class="footer">
         <p>&copy; 2024 Biblioteca Digital. Desenvolvido pela nossa equipe acadêmica.</p>
     </footer>
+
+    <script src="js/tema.js"></script>
 </body>
 </html>
