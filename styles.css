@@ -464,6 +464,11 @@ html[data-theme="dark"] .theme-toggle-btn:hover {
     border-radius: 6px;
     object-fit: cover;
 }
+.capa-img {
+  width: 90px;
+  height: auto;
+  border-radius: 4px;
+}
 
   }
 }
