@@ -1,30 +1,21 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const themeToggle = document.getElementById("theme-toggle")
-  const htmlElement = document.documentElement
+  const themeToggle = document.getElementById("theme-toggle");
+  const html = document.documentElement;
 
-  // Check for saved theme preference or default to 'light'
-  const currentTheme = localStorage.getItem("theme") || "light"
-  htmlElement.setAttribute("data-theme", currentTheme)
+  const saved = localStorage.getItem("theme") || "light";
+  html.dataset.theme = saved;
 
-  if (themeToggle) {
-    // Update button text based on current theme
-    updateThemeButtonText()
+  updateButton();
 
-    // Toggle theme on button click
-    themeToggle.addEventListener("click", () => {
-      const theme = htmlElement.getAttribute("data-theme")
-      const newTheme = theme === "light" ? "dark" : "light"
+  themeToggle.addEventListener("click", () => {
+    const newTheme = html.dataset.theme === "light" ? "dark" : "light";
+    html.dataset.theme = newTheme;
+    localStorage.setItem("theme", newTheme);
+    updateButton();
+  });
 
-      htmlElement.setAttribute("data-theme", newTheme)
-      localStorage.setItem("theme", newTheme)
-      updateThemeButtonText()
-    })
+  function updateButton() {
+    themeToggle.textContent =
+      html.dataset.theme === "light" ? "🌙 Tema Escuro" : "☀️ Tema Claro";
   }
-
-  function updateThemeButtonText() {
-    const theme = htmlElement.getAttribute("data-theme")
-    if (themeToggle) {
-      themeToggle.textContent = theme === "light" ? "🌙 Tema Escuro" : "☀️ Tema Claro"
-    }
-  }
-})
+});
