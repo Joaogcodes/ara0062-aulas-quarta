@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-  fetch("dados.json") // Certifique-se que o JSON está na raiz
+   fetch("./dados.json")// Certifique-se que o JSON está na raiz
     .then(response => response.json())
     .then(data => {
       const tabela = document.getElementById("tabela-livros");
