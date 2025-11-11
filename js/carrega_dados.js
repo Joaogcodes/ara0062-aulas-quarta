@@ -1,6 +1,7 @@
 const tabela = document.getElementById("tabela-livros");
 
-fetch("dados.json")
+fetch("js/dados.json")
+
   .then(response => response.json())
   .then(livros => {
     livros.forEach(livro => {
