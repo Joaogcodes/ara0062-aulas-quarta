@@ -18,4 +18,10 @@ document.addEventListener("DOMContentLoaded", () => {
     themeToggle.textContent =
       html.dataset.theme === "light" ? "🌙 Tema Escuro" : "☀️ Tema Claro";
   }
+  function alternarTema() {
+  document.body.classList.toggle("dark");
+}
+
+document.getElementById("toggle-tema")?.addEventListener("click", alternarTema);
+
 });
