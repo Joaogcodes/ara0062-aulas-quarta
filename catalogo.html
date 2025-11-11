@@ -8,24 +8,47 @@
 </head>
 <body>
 
-  <h1>Catálogo de Livros</h1>
+  <nav class="navbar">
+    <div class="nav-container">
+      <h1 class="nav-logo">📚 Biblioteca Digital</h1>
+      <ul class="nav-menu">
+        <li><a href="index.html" class="nav-link">Início</a></li>
+        <li><a href="catalogo.html" class="nav-link active">Catálogo</a></li>
+        <li><a href="contato.html" class="nav-link">Contato</a></li>
+        <li><a href="equipe.html" class="nav-link">Equipe</a></li>
+        <li><button id="theme-toggle" class="theme-toggle-btn">🌙 Tema Escuro</button></li>
+      </ul>
+    </div>
+  </nav>
 
-  <table>
-    <thead>
-      <tr>
-        <th>Capa</th>
-        <th>Título</th>
-        <th>Autor</th>
-        <th>Gênero</th>
-        <th>Ano</th>
-      </tr>
-    </thead>
+  <main class="main-content">
+    <section class="catalog">
+      <div class="container">
+        <h1>Catálogo de Livros</h1>
+        <div class="table-container">
+          <table class="books-table">
+            <thead>
+              <tr>
+                <th>Capa</th>
+                <th>Título</th>
+                <th>Autor</th>
+                <th>Gênero</th>
+                <th>Ano</th>
+              </tr>
+            </thead>
+            <tbody id="tabela-livros"></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+  </main>
 
-    <tbody id="tabela-livros"></tbody>
-  </table>
+  <footer class="footer">
+    <p>&copy; 2024 Biblioteca Digital. Desenvolvido pela equipe acadêmica.</p>
+  </footer>
 
- <script src="js/carrega_dados.js"></script>
-<script src="js/tema.js"></script>
-
+  <!-- Scripts -->
+  <script src="js/carrega_dados.js"></script>
+  <script src="js/tema.js"></script>
 </body>
 </html>
