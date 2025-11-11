@@ -1,0 +1,178 @@
+/* Dark theme stylesheet */
+html[data-theme="dark"] {
+  --bg-primary: #1a1a1a;
+  --bg-secondary: #2d2d2d;
+  --text-primary: #e8e8e8;
+  --text-secondary: #b8b8b8;
+  --border-color: #404040;
+  --navbar-bg: #0d0d0d;
+  --table-header-bg: #34495e;
+  --table-hover-bg: #3d4d5c;
+  --form-bg: #252525;
+  --input-border: #404040;
+  --button-bg: #667eea;
+  --button-hover-bg: #5a6fd8;
+  --accent-color: #f39c12;
+}
+
+/* Removed the wildcard selector that was applying background to all elements */
+html[data-theme="dark"] body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+}
+
+html[data-theme="dark"] .navbar {
+  background-color: var(--navbar-bg);
+  color: var(--text-primary);
+}
+
+html[data-theme="dark"] .nav-logo,
+html[data-theme="dark"] .nav-link {
+  color: var(--text-primary);
+}
+
+html[data-theme="dark"] .nav-link:hover,
+html[data-theme="dark"] .nav-link.active {
+  background-color: #3d3d3d;
+}
+
+html[data-theme="dark"] .theme-toggle-btn {
+  background-color: var(--accent-color);
+  color: white;
+}
+
+html[data-theme="dark"] .theme-toggle-btn:hover {
+  background-color: #e67e22;
+}
+
+html[data-theme="dark"] .main-content {
+  background-color: var(--bg-primary);
+}
+
+html[data-theme="dark"] .hero {
+  /* removed dark background that was creating black box, keeping gradient from original CSS */
+  color: white;
+}
+
+html[data-theme="dark"] #main-hero {
+  /* using lighter gradient that complements the blue gradient instead of dark overlay */
+  background: linear-gradient(135deg, rgba(52, 152, 219, 0.95) 0%, rgba(41, 128, 185, 0.95) 100%);
+  border-bottom-color: var(--accent-color);
+}
+
+html[data-theme="dark"] .hero h1,
+html[data-theme="dark"] .hero-subtitle {
+  color: white;
+}
+
+html[data-theme="dark"] .about,
+html[data-theme="dark"] .catalog,
+html[data-theme="dark"] .contact,
+html[data-theme="dark"] .team {
+  background-color: var(--bg-secondary);
+  color: var(--text-primary);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+html[data-theme="dark"] h1,
+html[data-theme="dark"] h2,
+html[data-theme="dark"] h3 {
+  color: var(--text-primary);
+}
+
+html[data-theme="dark"] p,
+html[data-theme="dark"] li {
+  color: var(--text-secondary);
+}
+
+html[data-theme="dark"] .features-list {
+  color: var(--text-secondary);
+}
+
+html[data-theme="dark"] .books-table {
+  background-color: var(--bg-secondary);
+  color: var(--text-primary);
+}
+
+html[data-theme="dark"] .books-table th {
+  background-color: var(--table-header-bg);
+  color: white;
+}
+
+html[data-theme="dark"] .books-table td {
+  border-bottom-color: var(--border-color);
+  color: var(--text-secondary);
+}
+
+html[data-theme="dark"] .books-table tr:hover {
+  background-color: var(--table-hover-bg);
+}
+
+html[data-theme="dark"] #contact-form-main,
+html[data-theme="dark"] .contact-info {
+  background-color: var(--form-bg);
+  color: var(--text-secondary);
+}
+
+html[data-theme="dark"] .form-group label {
+  color: var(--text-primary);
+}
+
+html[data-theme="dark"] .form-group input,
+html[data-theme="dark"] .form-group textarea {
+  background-color: var(--bg-primary);
+  border-color: var(--input-border);
+  color: var(--text-primary);
+}
+
+html[data-theme="dark"] .form-group input:focus,
+html[data-theme="dark"] .form-group textarea:focus {
+  border-color: var(--button-bg);
+  outline: none;
+}
+
+html[data-theme="dark"] .submit-btn {
+  background-color: var(--button-bg);
+  color: white;
+}
+
+html[data-theme="dark"] .submit-btn:hover {
+  background-color: var(--button-hover-bg);
+}
+
+html[data-theme="dark"] .team-member {
+  background-color: var(--bg-primary);
+  color: var(--text-secondary);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+html[data-theme="dark"] .team-member h3 {
+  color: var(--text-primary);
+}
+
+html[data-theme="dark"] .matricula {
+  color: var(--accent-color);
+}
+
+html[data-theme="dark"] .role {
+  color: var(--text-secondary);
+}
+
+html[data-theme="dark"] .team-note {
+  background-color: #3d3d1a;
+  border-color: #5a5a2a;
+  color: var(--text-secondary);
+}
+
+html[data-theme="dark"] .footer {
+  background-color: var(--navbar-bg);
+  color: var(--text-primary);
+}
+
+html[data-theme="dark"] a {
+  color: var(--button-bg);
+}
+
+html[data-theme="dark"] a:hover {
+  color: var(--accent-color);
+}

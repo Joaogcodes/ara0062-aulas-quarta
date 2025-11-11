@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biblioteca Digital - Página Inicial</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Link to dark theme stylesheet -->
+    <link rel="stylesheet" href="styles-dark.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <h1 class="nav-logo">📚 Biblioteca Digital</h1>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link active">Início</a></li>
+                <li><a href="catalogo.html" class="nav-link">Catálogo</a></li>
+                <li><a href="contato.html" class="nav-link">Contato</a></li>
+                <li><a href="equipe.html" class="nav-link">Equipe</a></li>
+                <!-- Add theme toggle button -->
+                <li><button id="theme-toggle" class="theme-toggle-btn">🌙 Tema Escuro</button></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="main-content">
+        <section class="hero" id="main-hero">
+            <h1>Bem-vindo à Biblioteca Digital</h1>
+            <p class="hero-subtitle">Seu portal para descobrir, catalogar e gerenciar livros</p>
+        </section>
+
+        <section class="about">
+            <div class="container">
+                <h2>Sobre Nossa Aplicação</h2>
+                <p>
+                    A Biblioteca Digital é uma aplicação web desenvolvida para facilitar o gerenciamento 
+                    e consulta de acervos de livros. Nossa plataforma permite que você:
+                </p>
+                <ul class="features-list">
+                    <li>📖 Visualize um catálogo completo de livros</li>
+                    <li>🔍 Consulte informações detalhadas sobre cada obra</li>
+                    <li>📝 Gerencie dados de livros (futuramente com operações CRUD)</li>
+                    <li>💬 Entre em contato com nossa equipe</li>
+                </ul>
+                
+                <h3>Objetivo da Aplicação</h3>
+                <p>
+                    Esta aplicação se destina a bibliotecários, estudantes, professores e entusiastas 
+                    da leitura que desejam ter um controle organizado de livros. O sistema permitirá 
+                    no futuro realizar operações completas de cadastro, consulta, atualização e 
+                    exclusão de livros do acervo.
+                </p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2024 Biblioteca Digital. Desenvolvido pela nossa equipe acadêmica.</p>
+    </footer>
+
+    <script src="js/tema.js"></script>
+</body>
+</html>
