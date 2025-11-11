@@ -1,23 +1,25 @@
-document.addEventListener("DOMContentLoaded", () => {
-    fetch("js/dados.json")
-        .then(response => response.json())
-        .then(data => {
-            const tabela = document.querySelector(".books-table tbody");
-            tabela.innerHTML = "";
+const tabela = document.getElementById("tabela-livros");
 
-            data.livros.forEach(livro => {
-                const row = document.createElement("tr");
+fetch("dados.json")
+  .then(response => response.json())
+  .then(livros => {
+    livros.forEach(livro => {
+      const linha = document.createElement("tr");
 
-                row.innerHTML = `
-                    <td><img src="${livro.capa}" class="capa-livro" alt="${livro.titulo}"></td>
-                    <td>${livro.titulo}</td>
-                    <td>${livro.autor}</td>
-                    <td>${livro.genero}</td>
-                    <td>${livro.ano}</td>
-                `;
+      const celulaCapa = document.createElement("td");
+      const img = document.createElement("img");
+      img.src = "img/" + livro.capa; // <-- CAMINHO AJUSTADO
+      img.width = 80;
+      celulaCapa.appendChild(img);
 
-                tabela.appendChild(row);
-            });
-        })
-        .catch(error => console.error("Erro ao carregar dados:", error));
-});
+      linha.innerHTML += `
+        <td>${livro.titulo}</td>
+        <td>${livro.autor}</td>
+        <td>${livro.genero}</td>
+        <td>${livro.ano}</td>
+      `;
+
+      linha.prepend(celulaCapa);
+      tabela.appendChild(linha);
+    });
+  });
