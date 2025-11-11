@@ -148,6 +148,15 @@ body {
   background-color: var(--table-hover-bg);
 }
 
+/* Estilo das imagens das capas */
+.capa-img {
+  width: 80px;   /* Ajuste o tamanho que desejar */
+  height: auto;
+  object-fit: cover;
+  border-radius: 6px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
 .book-cover {
   width: 60px;
   height: 80px;
