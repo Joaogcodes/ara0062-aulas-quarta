@@ -2,26 +2,26 @@ document.addEventListener("DOMContentLoaded", () => {
   const themeToggle = document.getElementById("theme-toggle");
   const html = document.documentElement;
 
-  const saved = localStorage.getItem("theme") || "light";
-  html.dataset.theme = saved;
+  // Ler tema salvo (se não tiver, usa "light")
+  const savedTheme = localStorage.getItem("theme") || "light";
+  html.setAttribute("data-theme", savedTheme);
+  updateButtonText();
 
-  updateButton();
-
+  // Quando clicar, alternar tema
   themeToggle.addEventListener("click", () => {
-    const newTheme = html.dataset.theme === "light" ? "dark" : "light";
-    html.dataset.theme = newTheme;
+    const current = html.getAttribute("data-theme");
+    const newTheme = current === "light" ? "dark" : "light";
+
+    html.setAttribute("data-theme", newTheme);
     localStorage.setItem("theme", newTheme);
-    updateButton();
+    updateButtonText();
   });
 
-  function updateButton() {
+  // Atualiza o texto do botão
+  function updateButtonText() {
     themeToggle.textContent =
-      html.dataset.theme === "light" ? "🌙 Tema Escuro" : "☀️ Tema Claro";
+      html.getAttribute("data-theme") === "light"
+        ? "🌙 Tema Escuro"
+        : "☀️ Tema Claro";
   }
-  function alternarTema() {
-  document.body.classList.toggle("dark");
-}
-
-document.getElementById("toggle-tema")?.addEventListener("click", alternarTema);
-
 });
