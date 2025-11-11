@@ -10,8 +10,8 @@
     },
     {
       "id": 2,
-      "titulo": "O Cortico",
-      "autor": "Aluisio Azevedo",
+      "titulo": "O Cortiço",
+      "autor": "Aluísio Azevedo",
       "genero": "Naturalismo",
       "ano": 1890,
       "capa": "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-QOtU8l980ZFddS35PNU4yBSXIjWetm.png"
@@ -19,14 +19,14 @@
     {
       "id": 3,
       "titulo": "Iracema",
-      "autor": "Jose de Alencar",
+      "autor": "José de Alencar",
       "genero": "Romance Indianista",
       "ano": 1865,
       "capa": "https://m.media-amazon.com/images/I/81n+UqS8RwL._UF1000,1000_QL80_.jpg"
     },
     {
       "id": 4,
-      "titulo": "Memorias Postumas de Brás Cubas",
+      "titulo": "Memórias Póstumas de Brás Cubas",
       "autor": "Machado de Assis",
       "genero": "Romance",
       "ano": 1881,
