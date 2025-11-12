@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-  fetch("dados.json") 
+  fetch("../dados.json") // se catalogo.html estiver dentro de uma pasta, ajuste o caminho
     .then(response => response.json())
     .then(data => {
       const tabela = document.getElementById("tabela-livros");
