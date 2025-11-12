@@ -5,6 +5,50 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Biblioteca Digital - Página Inicial</title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Estilos específicos da galeria */
+        .book-gallery {
+            padding: 40px 0;
+        }
+
+        .book-gallery h2 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .book-card {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+            padding: 10px;
+            width: 200px;
+            text-align: center;
+        }
+
+        .book-card img {
+            width: 100%;
+            height: auto;
+            border-radius: 5px;
+        }
+
+        .book-card h3 {
+            margin: 10px 0 5px 0;
+            font-size: 16px;
+        }
+
+        .book-card p {
+            margin: 3px 0;
+            font-size: 14px;
+            color: #555;
+        }
+    </style>
 </head>
 <body>
     <nav class="navbar">
@@ -21,11 +65,13 @@
     </nav>
 
     <main class="main-content">
+        <!-- Seção Hero -->
         <section class="hero">
             <h1>Bem-vindo à Biblioteca Digital</h1>
             <p class="hero-subtitle">Seu portal para descobrir, catalogar e gerenciar livros.</p>
         </section>
 
+        <!-- Seção Sobre -->
         <section class="about">
             <div class="container">
                 <h2>Sobre Nossa Aplicação</h2>
@@ -41,6 +87,45 @@
                 </ul>
             </div>
         </section>
+
+        <!-- Seção Galeria de Livros -->
+        <section class="book-gallery">
+            <div class="container">
+                <h2>Galeria de Livros</h2>
+                <div class="gallery">
+                    <div class="book-card">
+                        <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-3ew94xE48QODZcVCXbWqHUhQLEDbb1.png" alt="Dom Casmurro">
+                        <h3>Dom Casmurro</h3>
+                        <p>Autor: Machado de Assis</p>
+                        <p>Romance - 1899</p>
+                    </div>
+                    <div class="book-card">
+                        <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-QOtU8l980ZFddS35PNU4yBSXIjWetm.png" alt="O Cortiço">
+                        <h3>O Cortiço</h3>
+                        <p>Autor: Aluísio Azevedo</p>
+                        <p>Naturalismo - 1890</p>
+                    </div>
+                    <div class="book-card">
+                        <img src="https://m.media-amazon.com/images/I/81n+UqS8RwL._UF1000,1000_QL80_.jpg" alt="Iracema">
+                        <h3>Iracema</h3>
+                        <p>Autor: José de Alencar</p>
+                        <p>Romance Indianista - 1865</p>
+                    </div>
+                    <div class="book-card">
+                        <img src="https://m.media-amazon.com/images/I/51FwHerjYKL._SY445_SX342_QL70_ML2_.jpg" alt="Memórias Póstumas de Brás Cubas">
+                        <h3>Memórias Póstumas de Brás Cubas</h3>
+                        <p>Autor: Machado de Assis</p>
+                        <p>Romance - 1881</p>
+                    </div>
+                    <div class="book-card">
+                        <img src="https://m.media-amazon.com/images/I/7125-MeD+KL._SL1360_.jpg" alt="O Guarani">
+                        <h3>O Guarani</h3>
+                        <p>Autor: José de Alencar</p>
+                        <p>Romance Indianista - 1857</p>
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
 
     <footer class="footer">
@@ -50,3 +135,4 @@
     <script src="js/tema.js"></script>
 </body>
 </html>
+
