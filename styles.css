@@ -1,5 +1,5 @@
-/* Reset e variáveis padrão */
-* {
+
+{
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -150,18 +150,13 @@ body {
 
 /* Estilo das imagens das capas */
 .capa-img {
-  width: 80px;   /* Ajuste o tamanho que desejar */
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  width: 80px;
   height: auto;
   object-fit: cover;
   border-radius: 6px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
-}
-
-.book-cover {
-  width: 60px;
-  height: 80px;
-  object-fit: cover;
-  border-radius: 4px;
   box-shadow: 0 2px 4px rgba(0,0,0,0.2);
 }
 
@@ -250,7 +245,7 @@ html[data-theme="dark"] .footer { background-color: var(--navbar-bg); color: var
   .container { padding: 0 1rem; }
   .books-table { font-size: 0.85rem; min-width: 600px; }
   .books-table th, .books-table td { padding: 0.75rem 0.5rem; }
-  .book-cover { width: 45px; height: 60px; }
+  .capa-img { width: 60px; height: auto; }
   .team-list { grid-template-columns: 1fr; gap: 1.5rem; }
   .team-member { padding: 1.5rem; }
   .submit-btn { width: 100%; padding: 1rem; }
@@ -263,6 +258,6 @@ html[data-theme="dark"] .footer { background-color: var(--navbar-bg); color: var
   .hero h1 { font-size: 1.8rem; }
   .catalog h1, .contact h1, .team h1 { font-size: 2rem; }
   .books-table { font-size: 0.8rem; }
-  .book-cover { width: 40px; height: 55px; }
+  .capa-img { width: 50px; height: auto; }
   .team-member h3 { font-size: 1.1rem; }
 }
