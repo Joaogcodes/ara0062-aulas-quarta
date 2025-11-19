@@ -47,7 +47,7 @@
                             required>
                     </div>
 
-                    <!-- CPF com máscara automática -->
+                    <!-- CPF com máscara e validação -->
                     <div class="form-group">
                         <label for="cpf">CPF:</label>
                         <input 
@@ -96,21 +96,46 @@
 
     <!-- Scripts -->
     <script>
-        // Máscara automática para o CPF
         const cpfInput = document.getElementById('cpf');
+        const form = document.getElementById('contact-form-main');
 
+        // Máscara automática do CPF
         cpfInput.addEventListener('input', () => {
             let cpf = cpfInput.value;
-
-            // Remove tudo que não é número
-            cpf = cpf.replace(/\D/g, '');
-
-            // Aplica a máscara: 000.000.000-00
+            cpf = cpf.replace(/\D/g, ''); // remove tudo que não é número
             cpf = cpf.replace(/(\d{3})(\d)/, '$1.$2');
             cpf = cpf.replace(/(\d{3})(\d)/, '$1.$2');
             cpf = cpf.replace(/(\d{3})(\d{1,2})$/, '$1-$2');
-
             cpfInput.value = cpf;
+        });
+
+        // Validação completa do CPF
+        function validarCPF(cpf) {
+            cpf = cpf.replace(/\D/g, '');
+            if (cpf.length !== 11 || /^(\d)\1+$/.test(cpf)) return false;
+
+            let soma = 0;
+            for (let i = 0; i < 9; i++) soma += parseInt(cpf.charAt(i)) * (10 - i);
+            let resto = (soma * 10) % 11;
+            if (resto === 10) resto = 0;
+            if (resto !== parseInt(cpf.charAt(9))) return false;
+
+            soma = 0;
+            for (let i = 0; i < 10; i++) soma += parseInt(cpf.charAt(i)) * (11 - i);
+            resto = (soma * 10) % 11;
+            if (resto === 10) resto = 0;
+            if (resto !== parseInt(cpf.charAt(10))) return false;
+
+            return true;
+        }
+
+        // Bloqueia envio do formulário se CPF for inválido
+        form.addEventListener('submit', (e) => {
+            if (!validarCPF(cpfInput.value)) {
+                e.preventDefault();
+                alert('CPF inválido! Verifique os números e tente novamente.');
+                cpfInput.focus();
+            }
         });
     </script>
 
