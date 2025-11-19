@@ -1,105 +1,120 @@
-document.addEventListener("DOMContentLoaded", () => {
-  const emailInput = document.getElementById("email");
-  const form = document.getElementById("contact-form-main");
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contato - Biblioteca Digital</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles-dark.css">
+</head>
 
-  // Adiciona o campo CPF apenas se não existir
-  if (!document.getElementById("cpf")) {
-    const emailGroup = emailInput.closest(".form-group");
-    const cpfGroup = document.createElement("div");
-    cpfGroup.className = "form-group";
-    cpfGroup.innerHTML = `
-      <label for="cpf">CPF:</label>
-      <input type="text" id="cpf" name="cpf" placeholder="000.000.000-00" maxlength="14" required>
-    `;
-    emailGroup.parentNode.insertBefore(cpfGroup, emailGroup.nextSibling);
-  }
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <h1 class="nav-logo">📚 Biblioteca Digital</h1>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">Início</a></li>
+                <li><a href="catalogo.html" class="nav-link">Catálogo</a></li>
+                <li><a href="contato.html" class="nav-link active">Contato</a></li>
+                <li><a href="equipe.html" class="nav-link">Equipe</a></li>
+                <li><button id="theme-toggle" class="theme-toggle-btn">🌙 Tema Escuro</button></li>
+            </ul>
+        </div>
+    </nav>
 
-  // Referências
-  const cpfInput = document.getElementById("cpf");
+    <main class="main-content">
+        <section class="contact">
+            <div class="container">
+                <h1>Entre em Contato</h1>
+                <p>Tem alguma dúvida ou sugestão? Envie-nos uma mensagem!</p>
+                
+                <form class="contact-form" id="contact-form-main" action="#" method="post">
 
-  // ===========================
-  //   VALIDAÇÃO DO E-MAIL
-  // ===========================
-  function validateEmail(email) {
-    // aceita: nome.sobrenome@net.com
-    const emailRegex = /^[a-zA-Z]+(\.[a-zA-Z]+)*@net\.com$/;
-    return emailRegex.test(email);
-  }
+                    <!-- Nome -->
+                    <div class="form-group">
+                        <label for="nome">Nome Completo:</label>
+                        <input type="text" id="nome" name="nome" required>
+                    </div>
 
-  // ===========================
-  //   VALIDAÇÃO DO CPF
-  // ===========================
-  function validateCPF(cpf) {
-    // valida exatamente o formato 000.000.000-00
-    const cpfRegex = /^\d{3}\.\d{3}\.\d{3}-\d{2}$/;
-    return cpfRegex.test(cpf);
-  }
+                    <!-- Email -->
+                    <div class="form-group">
+                        <label for="email">E-mail:</label>
+                        <input 
+                            type="email" 
+                            id="email" 
+                            name="email" 
+                            placeholder="exemplo@dominio.com"
+                            required>
+                    </div>
 
-  // ===========================
-  //   VALIDAÇÃO DO EMAIL (blur)
-  // ===========================
-  if (emailInput) {
-    emailInput.addEventListener("blur", function () {
-      if (this.value && !validateEmail(this.value)) {
-        this.style.borderColor = "#e74c3c";
-        this.title = "E-mail deve estar no formato: nome.sobrenome@net.com";
-      } else {
-        this.style.borderColor = "#ecf0f1";
-      }
-    });
-  }
+                    <!-- CPF com máscara automática -->
+                    <div class="form-group">
+                        <label for="cpf">CPF:</label>
+                        <input 
+                            type="text" 
+                            id="cpf" 
+                            name="cpf" 
+                            placeholder="000.000.000-00" 
+                            maxlength="14"
+                            required>
+                    </div>
 
-  // ===========================
-  //   VALIDAÇÃO DO CPF (blur)
-  // ===========================
-  if (cpfInput) {
-    cpfInput.addEventListener("blur", function () {
-      if (this.value && !validateCPF(this.value)) {
-        this.style.borderColor = "#e74c3c";
-        this.title = "CPF deve estar no formato: 000.000.000-00";
-      } else {
-        this.style.borderColor = "#ecf0f1";
-      }
-    });
+                    <!-- Assunto -->
+                    <div class="form-group">
+                        <label for="assunto">Assunto:</label>
+                        <input type="text" id="assunto" name="assunto" required>
+                    </div>
+                    
+                    <!-- Mensagem -->
+                    <div class="form-group">
+                        <label for="mensagem">Mensagem:</label>
+                        <textarea 
+                            id="mensagem" 
+                            name="mensagem" 
+                            rows="6" 
+                            placeholder="Digite sua mensagem aqui..." 
+                            required></textarea>
+                    </div>
 
-    // ===========================
-    //   MÁSCARA AUTOMÁTICA CPF
-    // ===========================
-    cpfInput.addEventListener("input", function () {
-      let v = this.value.replace(/\D/g, "");
+                    <button type="submit" class="submit-btn">Enviar</button>
+                </form>
 
-      if (v.length > 11) v = v.slice(0, 11);
+                <!-- Info -->
+                <div class="contact-info">
+                    <h3>Outras formas de contato:</h3>
+                    <p>📧 Email: contato@bibliotecadigital.com</p>
+                    <p>📞 Telefone: (11) 1234-5678</p>
+                    <p>📍 Endereço: Rua dos Livros, 123 - São Paulo, SP</p>
+                </div>
+            </div>
+        </section>
+    </main>
 
-      if (v.length >= 3) v = v.replace(/(\d{3})(\d)/, "$1.$2");
-      if (v.length >= 6) v = v.replace(/(\d{3})\.(\d{3})(\d)/, "$1.$2.$3");
-      if (v.length >= 9)
-        v = v.replace(/(\d{3})\.(\d{3})\.(\d{3})(\d)/, "$1.$2.$3-$4");
+    <footer class="footer">
+        <p>&copy; 2024 Biblioteca Digital. Desenvolvido pela nossa equipe acadêmica.</p>
+    </footer>
 
-      this.value = v;
-    });
-  }
+    <!-- Scripts -->
+    <script>
+        // Máscara automática para o CPF
+        const cpfInput = document.getElementById('cpf');
 
-  // ===========================
-  //   VALIDAÇÃO FINAL DO FORM
-  // ===========================
-  if (form) {
-    form.addEventListener("submit", (e) => {
-      const email = emailInput.value.trim();
-      const cpf = cpfInput ? cpfInput.value.trim() : "";
+        cpfInput.addEventListener('input', () => {
+            let cpf = cpfInput.value;
 
-      if (email && !validateEmail(email)) {
-        e.preventDefault();
-        alert("E-mail inválido! Use o formato: nome.sobrenome@net.com");
-        return false;
-      }
+            // Remove tudo que não é número
+            cpf = cpf.replace(/\D/g, '');
 
-      if (cpf && !validateCPF(cpf)) {
-        e.preventDefault();
-        alert("CPF inválido! Use o formato: 000.000.000-00");
-        return false;
-      }
+            // Aplica a máscara: 000.000.000-00
+            cpf = cpf.replace(/(\d{3})(\d)/, '$1.$2');
+            cpf = cpf.replace(/(\d{3})(\d)/, '$1.$2');
+            cpf = cpf.replace(/(\d{3})(\d{1,2})$/, '$1-$2');
 
-      alert("Formulário enviado com sucesso!");
-    });
-  }
-});
+            cpfInput.value = cpf;
+        });
+    </script>
+
+    <script src="js/tema.js"></script>
+</body>
+</html>
+
