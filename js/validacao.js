@@ -1,94 +1,105 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const emailInput = document.getElementById("email")
-  const form = document.getElementById("contact-form-main")
+  const emailInput = document.getElementById("email");
+  const form = document.getElementById("contact-form-main");
 
-  // Add CPF field after email if it doesn't exist
+  // Adiciona o campo CPF apenas se não existir
   if (!document.getElementById("cpf")) {
-    const emailGroup = emailInput.closest(".form-group")
-    const cpfGroup = document.createElement("div")
-    cpfGroup.className = "form-group"
+    const emailGroup = emailInput.closest(".form-group");
+    const cpfGroup = document.createElement("div");
+    cpfGroup.className = "form-group";
     cpfGroup.innerHTML = `
-            <label for="cpf">CPF:</label>
-            <input type="text" id="cpf" name="cpf" placeholder="999.999.999-99" required>
-        `
-    emailGroup.parentNode.insertBefore(cpfGroup, emailGroup.nextSibling)
+      <label for="cpf">CPF:</label>
+      <input type="text" id="cpf" name="cpf" placeholder="000.000.000-00" maxlength="14" required>
+    `;
+    emailGroup.parentNode.insertBefore(cpfGroup, emailGroup.nextSibling);
   }
 
-  // Email validation function
+  // Referências
+  const cpfInput = document.getElementById("cpf");
+
+  // ===========================
+  //   VALIDAÇÃO DO E-MAIL
+  // ===========================
   function validateEmail(email) {
-    // Format: joao.silva@net.com
-    const emailRegex = /^[a-zA-Z]+\.[a-zA-Z]+@net\.com$/
-    return emailRegex.test(email)
+    // aceita: nome.sobrenome@net.com
+    const emailRegex = /^[a-zA-Z]+(\.[a-zA-Z]+)*@net\.com$/;
+    return emailRegex.test(email);
   }
 
-  // CPF validation function
+  // ===========================
+  //   VALIDAÇÃO DO CPF
+  // ===========================
   function validateCPF(cpf) {
-    // Format: 999.999.999-99
-    const cpfRegex = /^\d{3}\.\d{3}\.\d{3}-\d{2}$/
-    return cpfRegex.test(cpf)
+    // valida exatamente o formato 000.000.000-00
+    const cpfRegex = /^\d{3}\.\d{3}\.\d{3}-\d{2}$/;
+    return cpfRegex.test(cpf);
   }
 
-  // Email input validation
+  // ===========================
+  //   VALIDAÇÃO DO EMAIL (blur)
+  // ===========================
   if (emailInput) {
     emailInput.addEventListener("blur", function () {
       if (this.value && !validateEmail(this.value)) {
-        this.style.borderColor = "#e74c3c"
-        this.title = "E-mail deve estar no formato: nome.sobrenome@net.com"
+        this.style.borderColor = "#e74c3c";
+        this.title = "E-mail deve estar no formato: nome.sobrenome@net.com";
       } else {
-        this.style.borderColor = "#ecf0f1"
+        this.style.borderColor = "#ecf0f1";
       }
-    })
+    });
   }
 
-  // CPF input validation
-  const cpfInput = document.getElementById("cpf")
+  // ===========================
+  //   VALIDAÇÃO DO CPF (blur)
+  // ===========================
   if (cpfInput) {
     cpfInput.addEventListener("blur", function () {
       if (this.value && !validateCPF(this.value)) {
-        this.style.borderColor = "#e74c3c"
-        this.title = "CPF deve estar no formato: 999.999.999-99"
+        this.style.borderColor = "#e74c3c";
+        this.title = "CPF deve estar no formato: 000.000.000-00";
       } else {
-        this.style.borderColor = "#ecf0f1"
+        this.style.borderColor = "#ecf0f1";
       }
-    })
+    });
 
-    // Format CPF as user types
+    // ===========================
+    //   MÁSCARA AUTOMÁTICA CPF
+    // ===========================
     cpfInput.addEventListener("input", function () {
-      let value = this.value.replace(/\D/g, "")
-      if (value.length > 11) value = value.slice(0, 11)
+      let v = this.value.replace(/\D/g, "");
 
-      if (value.length >= 3) {
-        value = value.slice(0, 3) + "." + value.slice(3)
-      }
-      if (value.length >= 7) {
-        value = value.slice(0, 7) + "." + value.slice(7)
-      }
-      if (value.length >= 11) {
-        value = value.slice(0, 11) + "-" + value.slice(11)
-      }
-      this.value = value
-    })
+      if (v.length > 11) v = v.slice(0, 11);
+
+      if (v.length >= 3) v = v.replace(/(\d{3})(\d)/, "$1.$2");
+      if (v.length >= 6) v = v.replace(/(\d{3})\.(\d{3})(\d)/, "$1.$2.$3");
+      if (v.length >= 9)
+        v = v.replace(/(\d{3})\.(\d{3})\.(\d{3})(\d)/, "$1.$2.$3-$4");
+
+      this.value = v;
+    });
   }
 
-  // Form submission validation
+  // ===========================
+  //   VALIDAÇÃO FINAL DO FORM
+  // ===========================
   if (form) {
     form.addEventListener("submit", (e) => {
-      const email = emailInput.value
-      const cpf = cpfInput ? cpfInput.value : ""
+      const email = emailInput.value.trim();
+      const cpf = cpfInput ? cpfInput.value.trim() : "";
 
       if (email && !validateEmail(email)) {
-        e.preventDefault()
-        alert("E-mail inválido! Use o formato: nome.sobrenome@net.com")
-        return false
+        e.preventDefault();
+        alert("E-mail inválido! Use o formato: nome.sobrenome@net.com");
+        return false;
       }
 
       if (cpf && !validateCPF(cpf)) {
-        e.preventDefault()
-        alert("CPF inválido! Use o formato: 999.999.999-99")
-        return false
+        e.preventDefault();
+        alert("CPF inválido! Use o formato: 000.000.000-00");
+        return false;
       }
 
-      alert("Formulário enviado com sucesso!")
-    })
+      alert("Formulário enviado com sucesso!");
+    });
   }
-})
+});
