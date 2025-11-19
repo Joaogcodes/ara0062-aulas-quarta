@@ -97,12 +97,13 @@
     <!-- Scripts -->
     <script>
         const cpfInput = document.getElementById('cpf');
+        const emailInput = document.getElementById('email');
         const form = document.getElementById('contact-form-main');
 
         // Máscara automática do CPF
         cpfInput.addEventListener('input', () => {
             let cpf = cpfInput.value;
-            cpf = cpf.replace(/\D/g, ''); // remove tudo que não é número
+            cpf = cpf.replace(/\D/g, '');
             cpf = cpf.replace(/(\d{3})(\d)/, '$1.$2');
             cpf = cpf.replace(/(\d{3})(\d)/, '$1.$2');
             cpf = cpf.replace(/(\d{3})(\d{1,2})$/, '$1-$2');
@@ -129,12 +130,26 @@
             return true;
         }
 
-        // Bloqueia envio do formulário se CPF for inválido
+        // Validação do e-mail usando regex
+        function validarEmail(email) {
+            const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return regex.test(email);
+        }
+
+        // Validação no envio do formulário
         form.addEventListener('submit', (e) => {
             if (!validarCPF(cpfInput.value)) {
                 e.preventDefault();
                 alert('CPF inválido! Verifique os números e tente novamente.');
                 cpfInput.focus();
+                return;
+            }
+
+            if (!validarEmail(emailInput.value)) {
+                e.preventDefault();
+                alert('E-mail inválido! Verifique o endereço e tente novamente.');
+                emailInput.focus();
+                return;
             }
         });
     </script>
@@ -142,4 +157,6 @@
     <script src="js/tema.js"></script>
 </body>
 </html>
+
+
 
