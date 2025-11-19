@@ -36,7 +36,7 @@
                         <input type="text" id="nome" name="nome" required>
                     </div>
 
-                    <!-- Email -->
+                    <!-- Email com limite de caracteres -->
                     <div class="form-group">
                         <label for="email">E-mail:</label>
                         <input 
@@ -44,10 +44,11 @@
                             id="email" 
                             name="email" 
                             placeholder="exemplo@dominio.com"
+                            maxlength="100"
                             required>
                     </div>
 
-                    <!-- CPF -->
+                    <!-- CPF com máscara e validação -->
                     <div class="form-group">
                         <label for="cpf">CPF:</label>
                         <input 
@@ -79,6 +80,7 @@
                     <button type="submit" class="submit-btn">Enviar</button>
                 </form>
 
+                <!-- Info -->
                 <div class="contact-info">
                     <h3>Outras formas de contato:</h3>
                     <p>📧 Email: contato@bibliotecadigital.com</p>
@@ -99,7 +101,7 @@
         const emailInput = document.getElementById('email');
         const form = document.getElementById('contact-form-main');
 
-        // Máscara do CPF
+        // Máscara automática do CPF
         cpfInput.addEventListener('input', () => {
             let cpf = cpfInput.value;
             cpf = cpf.replace(/\D/g, '');
@@ -129,13 +131,13 @@
             return true;
         }
 
-        // Validação de e-mail
+        // Validação do e-mail usando regex
         function validarEmail(email) {
             const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
             return regex.test(email);
         }
 
-        // Validação ao enviar o formulário
+        // Validação no envio do formulário
         form.addEventListener('submit', (e) => {
             if (!validarCPF(cpfInput.value)) {
                 e.preventDefault();
@@ -156,4 +158,3 @@
     <script src="js/tema.js"></script>
 </body>
 </html>
-
