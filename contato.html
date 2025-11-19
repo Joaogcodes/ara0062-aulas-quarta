@@ -36,7 +36,7 @@
                         <input type="text" id="nome" name="nome" required>
                     </div>
 
-                    <!-- Email correto -->
+                    <!-- Email -->
                     <div class="form-group">
                         <label for="email">E-mail:</label>
                         <input 
@@ -47,7 +47,7 @@
                             required>
                     </div>
 
-                    <!-- CPF correto -->
+                    <!-- CPF com máscara automática -->
                     <div class="form-group">
                         <label for="cpf">CPF:</label>
                         <input 
@@ -94,8 +94,21 @@
         <p>&copy; 2024 Biblioteca Digital. Desenvolvido pela nossa equipe acadêmica.</p>
     </footer>
 
-    <script src="js/validacao.js"></script>
+    <!-- Máscara do CPF -->
+    <script>
+        const cpfInput = document.getElementById('cpf');
+        cpfInput.addEventListener('input', () => {
+            let cpf = cpfInput.value;
+            cpf = cpf.replace(/\D/g, ''); // remove tudo que não é número
+            cpf = cpf.replace(/(\d{3})(\d)/, '$1.$2');
+            cpf = cpf.replace(/(\d{3})(\d)/, '$1.$2');
+            cpf = cpf.replace(/(\d{3})(\d{1,2})$/, '$1-$2');
+            cpfInput.value = cpf;
+        });
+    </script>
 
     <script src="js/tema.js"></script>
 </body>
 </html>
+
+                
