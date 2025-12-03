@@ -1,53 +1,60 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Catálogo de Livros</title>
-  <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catálogo de Livros - Biblioteca Digital</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Link to dark theme stylesheet -->
+    <link rel="stylesheet" href="styles-dark.css">
 </head>
 <body>
-
-  <nav class="navbar">
-    <div class="nav-container">
-      <h1 class="nav-logo">📚 Biblioteca Digital</h1>
-      <ul class="nav-menu">
-        <li><a href="index.html" class="nav-link">Início</a></li>
-        <li><a href="catalogo.html" class="nav-link active">Catálogo</a></li>
-        <li><a href="contato.html" class="nav-link">Contato</a></li>
-        <li><a href="equipe.html" class="nav-link">Equipe</a></li>
-        <li><button id="theme-toggle" class="theme-toggle-btn">🌙 Tema Escuro</button></li>
-      </ul>
-    </div>
-  </nav>
-
-  <main class="main-content">
-    <section class="catalog">
-      <div class="container">
-        <h1>Catálogo de Livros</h1>
-        <div class="table-container">
-          <table class="books-table">
-            <thead>
-              <tr>
-                <th>Capa</th>
-                <th>Título</th>
-                <th>Autor</th>
-                <th>Gênero</th>
-                <th>Ano</th>
-              </tr>
-            </thead>
-            <tbody id="tabela-livros"></tbody>
-          </table>
+    <nav class="navbar">
+        <div class="nav-container">
+            <h1 class="nav-logo">📚 Biblioteca Digital</h1>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">Início</a></li>
+                <li><a href="catalogo.html" class="nav-link active">Catálogo</a></li>
+                <li><a href="contato.html" class="nav-link">Contato</a></li>
+                <li><a href="equipe.html" class="nav-link">Equipe</a></li>
+                <li><a href="gerenciar.html" class="nav-link">Gerenciar</a></li>
+                <!-- Added Gerenciar link to navigation -->
+                <li><button id="theme-toggle" class="theme-toggle-btn">🌙 Tema Escuro</button></li>
+            </ul>
         </div>
-      </div>
-    </section>
-  </main>
+    </nav>
 
-  <footer class="footer">
-    <p>&copy; 2025 Biblioteca Digital. Desenvolvido pela equipe acadêmica.</p>
-  </footer>
- <script src="js/carrega_dados.js"></script>
-<script src="js/tema.js"></script>
+    <main class="main-content">
+        <section class="catalog">
+            <div class="container">
+                <h1>Catálogo de Livros</h1>
+                <p>Explore nossa coleção de livros disponíveis</p>
+                
+                <div class="table-container">
+                    <table class="books-table">
+                        <thead>
+                            <tr>
+                                <th>Capa</th>
+                                <th>Título</th>
+                                <th>Autor</th>
+                                <th>Gênero</th>
+                                <th>Ano de Publicação</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Table body will be populated dynamically by JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+    </main>
 
+    <footer class="footer">
+        <p>&copy; 2025 Biblioteca Digital. Desenvolvido pela nossa equipe acadêmica.</p>
+    </footer>
+    <!-- Load dynamic data and theme script -->
+    <script src="js/carrega_dados.js"></script>
+    <script src="js/tema.js"></script>
 </body>
 </html>

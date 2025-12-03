@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerenciar Livros - Biblioteca Digital</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles-dark.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <h1 class="nav-logo">📚 Biblioteca Digital</h1>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">Início</a></li>
+                <li><a href="catalogo.html" class="nav-link">Catálogo</a></li>
+                <li><a href="contato.html" class="nav-link">Contato</a></li>
+                <li><a href="equipe.html" class="nav-link">Equipe</a></li>
+                <li><a href="gerenciar.html" class="nav-link active">Gerenciar</a></li>
+                <li><button id="theme-toggle" class="theme-toggle-btn">🌙 Tema Escuro</button></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="main-content">
+        <section class="hero" id="main-hero">
+            <h1>Gerenciar Livros</h1>
+            <p class="hero-subtitle">Operações CRUD para gerenciamento de livros</p>
+        </section>
+
+        <section class="gerenciar-section">
+            <div class="container">
+                <div class="gerenciar-buttons">
+                    <button class="btn-gerenciar btn-create" onclick="mostrarFormCriar()">
+                        ➕ Adicionar Novo Livro
+                    </button>
+                    <button class="btn-gerenciar btn-read" onclick="carregarLivros()">
+                        📖 Listar Todos os Livros
+                    </button>
+                    <button class="btn-gerenciar btn-update" onclick="mostrarFormAtualizar()">
+                        ✏️ Atualizar Livro
+                    </button>
+                    <button class="btn-gerenciar btn-delete" onclick="mostrarFormDeletar()">
+                        🗑️ Deletar Livro
+                    </button>
+                </div>
+
+                <!-- Formulário de Criar Livro -->
+                <div id="form-criar" class="form-container hidden">
+                    <h3>Adicionar Novo Livro</h3>
+                    <form id="criar-livro-form" onsubmit="criarLivro(event)">
+                        <div class="form-group">
+                            <label for="titulo">Título:</label>
+                            <input type="text" id="titulo" name="titulo" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="autor">Autor:</label>
+                            <input type="text" id="autor" name="autor" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="genero">Gênero:</label>
+                            <input type="text" id="genero" name="genero" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="ano_publicacao">Ano de Publicação:</label>
+                            <input type="number" id="ano_publicacao" name="ano_publicacao" min="1000" max="2100">
+                        </div>
+                        <div class="form-group">
+                            <label for="editora">Editora:</label>
+                            <input type="text" id="editora" name="editora">
+                        </div>
+                        <div class="form-group">
+                            <label for="isbn">ISBN:</label>
+                            <input type="text" id="isbn" name="isbn">
+                        </div>
+                        <button type="submit" class="btn-submit">Salvar Livro</button>
+                        <button type="button" class="btn-cancel" onclick="esconderForm('form-criar')">Cancelar</button>
+                    </form>
+                </div>
+
+                <!-- Formulário de Atualizar Livro -->
+                <div id="form-atualizar" class="form-container hidden">
+                    <h3>Atualizar Livro</h3>
+                    <form id="atualizar-livro-form" onsubmit="atualizarLivro(event)">
+                        <div class="form-group">
+                            <label for="id-atualizar">ID do Livro:</label>
+                            <input type="number" id="id-atualizar" name="id-atualizar" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="titulo-atualizar">Título:</label>
+                            <input type="text" id="titulo-atualizar" name="titulo-atualizar">
+                        </div>
+                        <div class="form-group">
+                            <label for="autor-atualizar">Autor:</label>
+                            <input type="text" id="autor-atualizar" name="autor-atualizar">
+                        </div>
+                        <div class="form-group">
+                            <label for="genero-atualizar">Gênero:</label>
+                            <input type="text" id="genero-atualizar" name="genero-atualizar">
+                        </div>
+                        <button type="submit" class="btn-submit">Atualizar Livro</button>
+                        <button type="button" class="btn-cancel" onclick="esconderForm('form-atualizar')">Cancelar</button>
+                    </form>
+                </div>
+
+                <!-- Formulário de Deletar Livro -->
+                <div id="form-deletar" class="form-container hidden">
+                    <h3>Deletar Livro</h3>
+                    <form id="deletar-livro-form" onsubmit="deletarLivro(event)">
+                        <div class="form-group">
+                            <label for="id-deletar">ID do Livro:</label>
+                            <input type="number" id="id-deletar" name="id-deletar" required>
+                        </div>
+                        <p class="warning-text">⚠️ Esta ação não pode ser desfeita!</p>
+                        <button type="submit" class="btn-submit btn-delete-confirm">Deletar Livro</button>
+                        <button type="button" class="btn-cancel" onclick="esconderForm('form-deletar')">Cancelar</button>
+                    </form>
+                </div>
+
+                <!-- Resultado da Listagem -->
+                <div id="resultado" class="resultado-container hidden"></div>
+
+                <!-- Mensagem de Status -->
+                <div id="mensagem" class="mensagem hidden"></div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2025 Biblioteca Digital. Desenvolvido pela nossa equipe acadêmica.</p>
+    </footer>
+
+    <script src="js/tema.js"></script>
+    <script src="js/gerenciar.js"></script>
+</body>
+</html>

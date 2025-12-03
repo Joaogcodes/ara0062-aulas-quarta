@@ -5,50 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Biblioteca Digital - Página Inicial</title>
     <link rel="stylesheet" href="styles.css">
-    <style>
-        /* Estilos específicos da galeria */
-        .book-gallery {
-            padding: 40px 0;
-        }
-
-        .book-gallery h2 {
-            text-align: center;
-            margin-bottom: 30px;
-        }
-
-        .gallery {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
-            justify-content: center;
-        }
-
-        .book-card {
-            background-color: #fff;
-            border-radius: 10px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
-            padding: 10px;
-            width: 200px;
-            text-align: center;
-        }
-
-        .book-card img {
-            width: 100%;
-            height: auto;
-            border-radius: 5px;
-        }
-
-        .book-card h3 {
-            margin: 10px 0 5px 0;
-            font-size: 16px;
-        }
-
-        .book-card p {
-            margin: 3px 0;
-            font-size: 14px;
-            color: #555;
-        }
-    </style>
+    <!-- Link to dark theme stylesheet -->
+    <link rel="stylesheet" href="styles-dark.css">
 </head>
 <body>
     <nav class="navbar">
@@ -59,80 +17,48 @@
                 <li><a href="catalogo.html" class="nav-link">Catálogo</a></li>
                 <li><a href="contato.html" class="nav-link">Contato</a></li>
                 <li><a href="equipe.html" class="nav-link">Equipe</a></li>
+                <li><a href="gerenciar.html" class="nav-link">Gerenciar</a></li>
+                <!-- Added Gerenciar link to navigation -->
                 <li><button id="theme-toggle" class="theme-toggle-btn">🌙 Tema Escuro</button></li>
             </ul>
         </div>
     </nav>
 
     <main class="main-content">
-        <!-- Seção Hero -->
-        <section class="hero">
+        <section class="hero" id="main-hero">
             <h1>Bem-vindo à Biblioteca Digital</h1>
-            <p class="hero-subtitle">Seu portal para descobrir, catalogar e gerenciar livros.</p>
+            <p class="hero-subtitle">Seu portal para descobrir, catalogar e gerenciar livros</p>
         </section>
 
-        <!-- Seção Sobre -->
         <section class="about">
             <div class="container">
                 <h2>Sobre Nossa Aplicação</h2>
                 <p>
-                    A Biblioteca Digital é uma plataforma prática para consulta, organização e gerenciamento de livros. Aqui você pode:
+                    A Biblioteca Digital é uma aplicação web desenvolvida para facilitar o gerenciamento 
+                    e consulta de acervos de livros. Nossa plataforma permite que você:
                 </p>
-
                 <ul class="features-list">
-                    <li>📖 Consultar um catálogo completo</li>
-                    <li>🔍 Ver detalhes de cada obra</li>
-                    <li>📝 Futuramente cadastrar, editar e excluir livros</li>
-                    <li>💬 Entrar em contato com a equipe</li>
+                    <li>📖 Visualize um catálogo completo de livros</li>
+                    <li>🔍 Consulte informações detalhadas sobre cada obra</li>
+                    <li>📝 Gerencie dados de livros (futuramente com operações CRUD)</li>
+                    <li>💬 Entre em contato com nossa equipe</li>
                 </ul>
-            </div>
-        </section>
-
-        <!-- Seção Galeria de Livros -->
-        <section class="book-gallery">
-            <div class="container">
-                <h2>Galeria de Livros</h2>
-                <div class="gallery">
-                    <div class="book-card">
-                        <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-3ew94xE48QODZcVCXbWqHUhQLEDbb1.png" alt="Dom Casmurro">
-                        <h3>Dom Casmurro</h3>
-                        <p>Autor: Machado de Assis</p>
-                        <p>Romance - 1899</p>
-                    </div>
-                    <div class="book-card">
-                        <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-QOtU8l980ZFddS35PNU4yBSXIjWetm.png" alt="O Cortiço">
-                        <h3>O Cortiço</h3>
-                        <p>Autor: Aluísio Azevedo</p>
-                        <p>Naturalismo - 1890</p>
-                    </div>
-                    <div class="book-card">
-                        <img src="https://m.media-amazon.com/images/I/81n+UqS8RwL._UF1000,1000_QL80_.jpg" alt="Iracema">
-                        <h3>Iracema</h3>
-                        <p>Autor: José de Alencar</p>
-                        <p>Romance Indianista - 1865</p>
-                    </div>
-                    <div class="book-card">
-                        <img src="https://m.media-amazon.com/images/I/51FwHerjYKL._SY445_SX342_QL70_ML2_.jpg" alt="Memórias Póstumas de Brás Cubas">
-                        <h3>Memórias Póstumas de Brás Cubas</h3>
-                        <p>Autor: Machado de Assis</p>
-                        <p>Romance - 1881</p>
-                    </div>
-                    <div class="book-card">
-                        <img src="https://m.media-amazon.com/images/I/7125-MeD+KL._SL1360_.jpg" alt="O Guarani">
-                        <h3>O Guarani</h3>
-                        <p>Autor: José de Alencar</p>
-                        <p>Romance Indianista - 1857</p>
-                    </div>
-                </div>
+                
+                <h3>Objetivo da Aplicação</h3>
+                <p>
+                    Esta aplicação se destina a bibliotecários, estudantes, professores e entusiastas 
+                    da leitura que desejam ter um controle organizado de livros. O sistema permitirá 
+                    no futuro realizar operações completas de cadastro, consulta, atualização e 
+                    exclusão de livros do acervo.
+                </p>
             </div>
         </section>
     </main>
 
     <footer class="footer">
-        <p>&copy; 2024 Biblioteca Digital. Desenvolvido pela equipe acadêmica.</p>
+        <p>&copy; 2024 Biblioteca Digital. Desenvolvido pela nossa equipe acadêmica.</p>
     </footer>
 
     <script src="js/tema.js"></script>
 </body>
 </html>
-
